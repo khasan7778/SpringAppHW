@@ -7,12 +7,20 @@
 
 import Spring
 
-var springs: [String] = ["slideLeft", "slideRight", "slideDown", "slideUp", "squeezeLeft",
-                         "squeezeRight", "squeezeDown", "squeezeUp", "fadeIn", "fadeOut",
-                         "fadeOutIn", "fadeInLeft", "fadeInRight", "fadeInDown", "fadeInUp",
-                         "zoomIn", "zoomOut", "fall", "shake", "pop", "flipX",
-                         "flipY", "morph", "squeeze", "flash", "wobble", "swing"]
-                            
+struct Animation {
+    let name: String
+    let force: Double
+    let duration: Double
+    
+    static func getRandomAnimation() -> Animation {
+        Animation(
+            name: DataManager.shared.springs.randomElement() ?? "",
+            force: Double.random(in: 0...1),
+            duration: Double.random(in: 0...1)
+        )
+    }
+    
+}
 
 
 

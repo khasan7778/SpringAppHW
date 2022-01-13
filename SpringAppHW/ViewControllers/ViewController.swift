@@ -15,16 +15,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var force: UILabel!
     @IBOutlet weak var duration: UILabel!
     
+    private var animat = Animation.getRandomAnimation()
+    
 
     @IBAction func runSpringAnimation(_ sender: SpringButton) {
-        springView.animation = springs.randomElement()!
-        springView.force = CGFloat.random(in: 0...1)
-        springView.duration = CGFloat.random(in: 0...1)
-        
-        force.text = String(springView.force)
-        
-        
+
+        animat = Animation.getRandomAnimation()
         springView.animate()
+        
+        sender.setTitle(animat.name, for: .normal)
+        
+        
+        
 
     }
     
