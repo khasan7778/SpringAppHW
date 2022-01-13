@@ -19,14 +19,18 @@ class ViewController: UIViewController {
     
 
     @IBAction func runSpringAnimation(_ sender: SpringButton) {
-
+        springView.animation = animat.name
+        springView.force = animat.force
+        springView.duration = animat.duration
         animat = Animation.getRandomAnimation()
         springView.animate()
         
-        sender.setTitle(animat.name, for: .normal)
+        sender.setTitle("Next animation \(animat.name)", for: .normal)
         
-        
-        
+        animation.text = "Animation \(String(springView.animation))"
+
+        force.text = "Force: \(String(round(springView.force.native * 10) / 10))"
+        duration.text = "Duration: \(String(round(springView.duration.native * 10) / 10))"
 
     }
     
